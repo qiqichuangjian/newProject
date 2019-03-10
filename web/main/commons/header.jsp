@@ -32,13 +32,14 @@
                         <a href="#">经济新闻</a>
                     </li>
                     <li>
-                        <a href="news?action=list&typeId=4">文化新闻</a>
+                        <a href="#">文化新闻</a>
                     </li>
                     <li>
-                        <a href="news?action=list&typeId=5">小道新闻</a>
+                        <a href="#">小道新闻</a>
                     </li>
                     <li>
-                        <a href="news?action=list&typeId=6">屌炸天新闻</a>
+                        <a href="#">军事新闻</a>
+                        <%--<a href="news?action=list&typeId=6">军事新闻</a>--%>
                     </li>
                 </ul>
             </div>

@@ -167,7 +167,7 @@
         <%--分类1 开始--%>
         <div class="col-md-4">
             <div class="data_list news_list">
-                <div class="dataHeader">娱乐新闻1<span class="more"><a href="news?action=list&typeId=1">更多...</a></span>
+                <div class="dataHeader">娱乐新闻<span class="more"><a href="news?action=list&typeId=1">更多...</a></span>
                 </div>
                 <div class="datas">
                     <ul>
@@ -203,7 +203,7 @@
         <%--分类2 开始--%>
         <div class="col-md-4">
             <div class="data_list news_list">
-                <div class="dataHeader">娱乐新闻2<span class="more"><a href="news?action=list&typeId=1">更多...</a></span>
+                <div class="dataHeader">政治新闻<span class="more"><a href="news?action=list&typeId=1">更多...</a></span>
                 </div>
                 <div class="datas">
                     <ul>
@@ -239,7 +239,7 @@
         <%--分类3 开始--%>
         <div class="col-md-4">
             <div class="data_list news_list">
-                <div class="dataHeader">娱乐新闻3<span class="more"><a href="news?action=list&typeId=1">更多...</a></span>
+                <div class="dataHeader">经济新闻<span class="more"><a href="news?action=list&typeId=1">更多...</a></span>
                 </div>
                 <div class="datas">
                     <ul>
@@ -279,7 +279,7 @@
         <%--分类4 开始--%>
         <div class="col-md-4">
             <div class="data_list news_list">
-                <div class="dataHeader">娱乐新闻4<span class="more"><a href="news?action=list&typeId=1">更多...</a></span>
+                <div class="dataHeader">文化新闻<span class="more"><a href="news?action=list&typeId=1">更多...</a></span>
                 </div>
                 <div class="datas">
                     <ul>
@@ -315,7 +315,7 @@
         <%--分类5 开始--%>
         <div class="col-md-4">
             <div class="data_list news_list">
-                <div class="dataHeader">娱乐新闻5<span class="more"><a href="news?action=list&typeId=1">更多...</a></span>
+                <div class="dataHeader">小道新闻<span class="more"><a href="news?action=list&typeId=1">更多...</a></span>
                 </div>
                 <div class="datas">
                     <ul>
@@ -351,7 +351,7 @@
         <%--分类6 开始--%>
         <div class="col-md-4">
             <div class="data_list news_list">
-                <div class="dataHeader">娱乐新闻6<span class="more"><a href="news?action=list&typeId=1">更多...</a></span>
+                <div class="dataHeader">军事新闻<span class="more"><a href="news?action=list&typeId=1">更多...</a></span>
                 </div>
                 <div class="datas">
                     <ul>
