@@ -1,0 +1,17 @@
+#myCarousel {
+    width: 345px;
+    height: 228px;
+    overflow: hidden;
+}
+
+.text-caption {
+    color: red;
+    position: absolute;
+    left: 100px;
+    top: 150px;
+    margin: 0 auto;
+    font-weight: bold;
+}
+#myCarousel a{
+    color: #fff !important;
+}

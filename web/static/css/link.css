@@ -1,0 +1,29 @@
+a{
+    color: black !important;
+}
+
+.link{
+    margin-top:8px;
+    border: 1px solid #E5E5E5;
+}
+
+.link .linkHeader{
+    border-bottom: 1px solid #E5E5E5;
+    padding: 3px 10px 3px;
+    font-weight: bold;
+}
+
+.link .datas{
+    padding: 5px;
+    height: 50px;
+}
+
+.link .datas ul{
+    list-style-type: none;
+}
+
+.link .datas ul li{
+    float: left;
+    margin-left: 15px;
+    margin: 5px 0px 15px 15px;
+}
