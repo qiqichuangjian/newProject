@@ -1,4 +1,6 @@
-<%--
+<%@ page import="com.zr.news.service.LinkService" %>
+<%@ page import="com.zr.news.entity.Link" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: PC
   Date: 2019/3/8
@@ -12,7 +14,7 @@
             <div class="linkHeader ">友情链接</div>
             <div class="datas">
                 <ul>
-                    <li>
+                    <%--<li>
                         <a href="http://www.baidu.com " target="_blank ">百度</a>
                     </li>
                     <li>
@@ -38,7 +40,21 @@
                     </li>
                     <li>
                         <a href="https://www.alipay.com/" target="_blank ">支付宝</a>
+                    </li>--%>
+                    <%
+                        LinkService lservice = new LinkService();
+                        List<Link> list = lservice.findAll();
+                        if (list != null) {
+                            for (Link link : list) {
+
+                    %>
+                    <li>
+                        <a href="<%=link.getLinkUrl()%>"><%=link.getLinkName()%></a>
                     </li>
+                    <%
+                            }
+                        }
+                    %>
                 </ul>
             </div>
         </div>

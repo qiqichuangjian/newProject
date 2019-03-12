@@ -1,4 +1,6 @@
-<%--
+<%@ page import="com.zr.news.service.NewsTypeService" %>
+<%@ page import="com.zr.news.entity.NewsType" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: PC
   Date: 2019/3/8
@@ -22,25 +24,21 @@
                     <li class="active">
                         <a href="#">首页</a>
                     </li>
+
+                    <%
+                        NewsTypeService ntservice=new NewsTypeService();
+                        List<NewsType> list = ntservice.findAll();
+                        if (list!=null){
+                            for (NewsType newsType:list) {
+
+                    %>
                     <li>
-                        <a href="#">娱乐新闻</a>
+                        <a href="<%=newsType.getTypeId()%>"><%=newsType.getTypeName()%></a>
                     </li>
-                    <li>
-                        <a href="#">政治新闻</a>
-                    </li>
-                    <li>
-                        <a href="#">经济新闻</a>
-                    </li>
-                    <li>
-                        <a href="#">文化新闻</a>
-                    </li>
-                    <li>
-                        <a href="#">小道新闻</a>
-                    </li>
-                    <li>
-                        <a href="#">军事新闻</a>
-                        <%--<a href="news?action=list&typeId=6">军事新闻</a>--%>
-                    </li>
+                    <%
+                            }
+                        }
+                    %>
                 </ul>
             </div>
         </nav>
