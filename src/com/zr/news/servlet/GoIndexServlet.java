@@ -18,39 +18,37 @@ import java.util.List;
 /**
  * @Acthor:孙琪; date:2019/3/14;
  */
-@WebServlet(name = "GoIndexServlet",urlPatterns = "/GoIndexServlet")
+@WebServlet(name = "GoIndexServlet", urlPatterns = "/GoIndex")
 public class GoIndexServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         NewsService newsService = new NewsService();
         NewsTypeService typeService = new NewsTypeService();
-
         // 新闻分类
         List<NewsType> typeList = typeService.findAll();
-        request.setAttribute("typeList",typeList);
+        request.setAttribute("typeList", typeList);
         // 图片新闻
         List<News> imageNewsList = newsService.findImgNews();
-        request.setAttribute("imageNewsList",imageNewsList);
+        request.setAttribute("imageNewsList", imageNewsList);
         // 头条新闻
         News headNews = newsService.findHeadNews();
-        request.setAttribute("headNews",headNews);
+        request.setAttribute("headNews", headNews);
         // 最近新闻
         List<News> newNewsList = newsService.findNewNews();
-        request.setAttribute("newNewsList",newNewsList);
+        request.setAttribute("newNewsList", newNewsList);
         // 热点新闻
         List<News> hotNewsList = newsService.findHotNews();
-        request.setAttribute("hotNewsList",hotNewsList);
+        request.setAttribute("hotNewsList", hotNewsList);
         // 新闻类别分类
         List<List<News>> newsByTypeList = newsService.findNewsByType();
-        request.setAttribute("newsByTypeList",newsByTypeList);
+        request.setAttribute("newsByTypeList", newsByTypeList);
 
         LinkService service = new LinkService();
         List<Link> linkList = service.findAll();
-        request.setAttribute("linkList",linkList);
-
-        request.getRequestDispatcher("/index.jsp").forward(request,response);
+        request.setAttribute("linkList", linkList);
+        request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request,response);
+        doPost(request, response);
     }
 }

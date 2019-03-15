@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="row">
     <div class="col-md-8">
-        <a href="/GoIndexServlet">
+        <a href="GoIndex">
             <img src="<%=request.getContextPath() %>/static/img/logo.png" alt="天天新闻"/>
         </a>
     </div>
@@ -21,12 +21,11 @@
             <div class="container">
                 <ul class="nav nav-pills">
                     <li class="active">
-                        <a href="GoIndexServlet">首页</a>
+                        <a href="GoIndex">首页</a>
                     </li>
 
                     <c:forEach var="type" items="${typeList}">
                         <li>
-                            <%--TypeServlet还未写--%>
                             <a href="TypeServlet?id=${type.typeId}">${type.typeName}</a>
                         </li>
                     </c:forEach>

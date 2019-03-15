@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<div class="row">
     <div class="col-md-9">
         <!-- Carousel  start -->
         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
@@ -19,23 +20,29 @@
                 <li data-target="#myCarousel" data-slide-to="3"></li>
             </ol>
             <!-- 轮播（Carousel）项目 -->
-            <div class="carousel-inner" >
-                <c:forEach var="imageNews" items="${imageNewsList}" varStatus="index">
-                    <c:if test="${index.first}">
+            <div class="carousel-inner">
+                <c:forEach items="${imageNewsList}" var="image" varStatus="i">
+                    <c:if test="${i.first}">
                         <div class="item active">
-                            <a href="NewsServlet?newsId=${imageNews.newsId}">
-                                <img src="<%=request.getContextPath()%>/newsImg/${imageNews.imageUrl}"
-                                     alt="${imageNews.title}"
-                                     title="11${imageNews.title}"></a>
+                            <a href="#">
+                                <img src="newsImg/${image.imageUrl}"
+                                     alt="${image.title}"
+                                     title="${image.title}"/>
+                            </a>
                         </div>
                     </c:if>
-                    <div class="item ">
-                        <a href="NewsServlet?newsId=${imageNews.newsId}">
-                            <img src="<%=request.getContextPath()%>/newsImg/${imageNews.imageUrl}"
-                                 alt="${imageNews.title}"
-                                 title="22${imageNews.title}"></a>
-                    </div>
+                    <c:if test="${!i.first}">
+                        <div class="item ">
+                            <a href="#">
+                                <img src="newsImg/${image.imageUrl}"
+                                     alt="${image.title}"
+                                     title="${image.title}"/>
+                            </a>
+                        </div>
+                    </c:if>
+
                 </c:forEach>
+
             </div>
             <!-- 轮播（Carousel）导航 -->
             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -62,15 +69,14 @@
                 <div class="currentUpdateHeader">最近更新</div>
                 <div class="currentUpdateDatas">
                     <table width="100%">
-
                         <c:forEach items="${newNewsList}" var="newNews" varStatus="i">
                             <c:if test="${i.index%2==0}">
                                 <tr>
                             </c:if>
                             <td width="50%">
-                                <a href="#?${newNews.newsId}" title="${newNews.title}">${fn:substring(newNews.title, 0, 12)}</a>
+                                <a href="#?${newNews.newsId}" title="${newNews.title}">${newNews.title}</a>
                             </td>
-                            <c:if test="${i.index%2==1}">
+                            <c:if test="">
                                 </tr>
                             </c:if>
                         </c:forEach>
@@ -84,10 +90,10 @@
             <div class="dataHeader">热点新闻</div>
             <div class="datas">
                 <ul>
-
                     <c:forEach items="${hotNewsList}" var="hotNews">
                         <li>
-                            <a href="#?${hotNews.newsId}" title="${hotNews.title}" >${fn:substring(hotNews.title, 0, 15)}</a>
+                            <a href="#?${hotNews.newsId}"
+                               title="${hotNews.title}">${fn:substring(hotNews.title, 0, 15)}</a>
                         </li>
                     </c:forEach>
                 </ul>
