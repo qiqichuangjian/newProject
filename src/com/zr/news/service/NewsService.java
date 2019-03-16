@@ -58,4 +58,8 @@ public class NewsService {
         }
         return listsnewsLists;
     }
+
+    public List<News> findClickNews(){
+        return newsDao.findClickNews();
+    }
 }

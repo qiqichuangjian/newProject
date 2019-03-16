@@ -42,7 +42,7 @@
                     <c:if test="${news.typeId==type.typeId }">
                         <div class="col-md-4">
                         <div class="data_list news_list">
-                        <div class="dataHeader">${type.typeName}<span class="more"><a href="#?${type.typeId}">更多...</a></span>
+                        <div class="dataHeader">${type.typeName}<span class="more"><a href="NewsServlet?action=query&typeId=${type.typeId}">更多...</a></span>
                         </div>
                         <div class="datas">
                         <ul>
@@ -51,12 +51,11 @@
             </c:if>
             <li>
                 <a href="#?${news.newsId}" title="${news.title}">
-                    [ <fmt:formatDate value="${news.pushDate}" type="date" pattern="MM-dd"/> ]&nbsp;
+                    [ <fmt:formatDate value="${news.pushDate}" type="date" pattern="yyyy-MM-dd"/> ]&nbsp;
                         ${fn:substring(news.title, 0, 12)}
                 </a>
             </li>
             <c:if test="${newsIndex.last}">
-
                 </ul>
                 </div>
                 </div>

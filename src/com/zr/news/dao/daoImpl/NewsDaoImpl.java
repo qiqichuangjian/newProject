@@ -16,8 +16,8 @@ public class NewsDaoImpl implements NewsDao {
     @Override
     public List<News> findNewsByType(int typeId) {
         //每个类别的新闻都提取8条
-        String sql="select * from news where type_id="+typeId+" order by push_date desc limit 0,8";
-        return  getNewsList(sql);
+        String sql = "select * from news where type_id=" + typeId + " order by push_date desc limit 0,8";
+        return getNewsList(sql);
     }
 
     @Override
@@ -48,6 +48,12 @@ public class NewsDaoImpl implements NewsDao {
     @Override
     public List<News> findNewNews() {
         String sql = "select * from news order by push_date desc limit 0,8";
+        return getNewsList(sql);
+    }
+
+    @Override
+    public List<News> findClickNews() {
+        String sql = "select * from news order by click desc limit 0,8";
         return getNewsList(sql);
     }
 
@@ -99,7 +105,7 @@ public class NewsDaoImpl implements NewsDao {
             }
             JdbcUtils.close();
         }
-return newslist;
+        return newslist;
     }
 
 }

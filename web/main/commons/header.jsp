@@ -23,10 +23,9 @@
                     <li class="active">
                         <a href="GoIndex">首页</a>
                     </li>
-
                     <c:forEach var="type" items="${typeList}">
                         <li>
-                            <a href="TypeServlet?id=${type.typeId}">${type.typeName}</a>
+                            <a href="NewsServlet?action=query&typeId=${type.typeId}">${type.typeName}</a>
                         </li>
                     </c:forEach>
                 </ul>

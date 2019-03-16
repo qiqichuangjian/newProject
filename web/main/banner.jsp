@@ -56,6 +56,7 @@
         </div>
         <!-- Carousel  end -->
         <div class="newsHeader_list">
+            <%--头条新闻 start--%>
             <div class="newsHeader">
                 <h3><a href="#?${headNews.newsId}" title="${headNews.title}">
                     ${fn:substring(headNews.title, 0, 8)}...
@@ -65,6 +66,8 @@
                     <a href="#?${headNews.newsId}">[查看全文]</a>
                 </p>
             </div>
+            <%--头条新闻 end--%>
+                <%--最近更新  start--%>
             <div class="currentUpdate">
                 <div class="currentUpdateHeader">最近更新</div>
                 <div class="currentUpdateDatas">
@@ -74,7 +77,7 @@
                                 <tr>
                             </c:if>
                             <td width="50%">
-                                <a href="#?${newNews.newsId}" title="${newNews.title}">${newNews.title}</a>
+                                <a href="#?${newNews.newsId}" title="${newNews.title}">${fn:substring(newNews.title, 0, 15)}</a>
                             </td>
                             <c:if test="">
                                 </tr>
@@ -84,7 +87,9 @@
                 </div>
             </div>
         </div>
+        <%--最近更新 end--%>
     </div>
+    <%--热点新闻 start--%>
     <div class="col-md-3">
         <div class="data_list hotspot_news_list">
             <div class="dataHeader">热点新闻</div>
@@ -100,4 +105,5 @@
             </div>
         </div>
     </div>
+    <%--热点新闻 end--%>
 </div>
