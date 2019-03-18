@@ -14,10 +14,10 @@ public class NavUtil {
         sb.append("</ul>");
         return sb.toString();
     }
-    public static  String getavNewsById(NewsType newsType,String title){
+    public static  String getNavNewsById(int typeId,String typeName,String title){
         StringBuffer sb = new StringBuffer("<ul class=\"breadcrumb\">");
         sb.append("<li><a href=\"goIndex\">主页</a></li>");
-        sb.append("<li><a href=\"NewsServlet?action=query&typeId="+newsType.getTypeId()+"\">"+newsType.getTypeName()+"</a></li>");
+        sb.append("<li><a href=\"NewsServlet?action=query&typeId="+typeId+"\">"+typeName+"</a></li>");
         sb.append("<li class=\"active\">"+title+"</li>");
         sb.append("</ul>");
         return sb.toString();

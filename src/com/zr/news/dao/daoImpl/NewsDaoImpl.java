@@ -13,6 +13,88 @@ import java.util.List;
  * @Acthor:孙琪; date:2019/3/11;
  */
 public class NewsDaoImpl implements NewsDao {
+
+    @Override
+    public News findUpNewsById(int id) {
+        String sql="select * from news where push_date>(select push_date from news where news_id=?)  order by push_date DESC limit 1;\n";
+        News news =  new News();
+
+        PreparedStatement ps=null;
+        ResultSet rs = null;
+        try {
+            Connection connection = JdbcUtils.getConnection();
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1,id);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                news.setNewsId(rs.getInt("news_id"));
+                news.setTitle(rs.getString("title"));
+                news.setContext(rs.getString("context"));
+                news.setAuthor(rs.getString("author"));
+                news.setTypeId(rs.getInt("type_id"));
+                news.setPushDate(rs.getDate("push_date"));
+                news.setIsImg(rs.getInt("is_img"));
+                news.setImageUrl(rs.getString("image_url"));
+                news.setClick(rs.getInt("click"));
+                news.setIsHot(rs.getInt("is_hot"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if(rs!=null)
+                    rs.close();
+                if(ps!=null)
+                    ps.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            JdbcUtils.close();
+        }
+        return news;
+    }
+
+    @Override
+    public News findDownNewsById(int id) {
+        String sql="select * from news where push_date<(select push_date from news where news_id=?)  order by push_date DESC limit 1;\n";
+        News news =  new News();
+
+        PreparedStatement ps=null;
+        ResultSet rs = null;
+        try {
+            Connection connection = JdbcUtils.getConnection();
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1,id);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                news.setNewsId(rs.getInt("news_id"));
+                news.setTitle(rs.getString("title"));
+                news.setContext(rs.getString("context"));
+                news.setAuthor(rs.getString("author"));
+                news.setTypeId(rs.getInt("type_id"));
+                news.setPushDate(rs.getDate("push_date"));
+                news.setIsImg(rs.getInt("is_img"));
+                news.setImageUrl(rs.getString("image_url"));
+                news.setClick(rs.getInt("click"));
+                news.setIsHot(rs.getInt("is_hot"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if(rs!=null)
+                    rs.close();
+                if(ps!=null)
+                    ps.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            JdbcUtils.close();
+        }
+        return news;
+    }
+
+    @Override
     public News findNewsById(int id){
         String sql="select n.*,t.type_name from news n, news_type  t  where n.type_id = t.type_id and news_id=?";
         News news =  new News();

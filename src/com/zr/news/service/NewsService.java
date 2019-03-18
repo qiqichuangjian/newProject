@@ -74,7 +74,15 @@ public class NewsService {
     }
 
     public News findNewsById(int id){
-        //newsDao.addClick(id);
         return newsDao.findNewsById(id);
+    }
+
+    public List<News> getNewsUpAndDown(int newsId){
+        List<News> newsUpAndDownList =  new ArrayList<>();
+        News upNews = newsDao.findUpNewsById(newsId);
+        News downNews = newsDao.findDownNewsById(newsId);
+        newsUpAndDownList.add(upNews);
+        newsUpAndDownList.add(downNews);
+        return newsUpAndDownList;
     }
 }

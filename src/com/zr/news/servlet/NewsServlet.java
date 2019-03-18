@@ -6,6 +6,7 @@ import com.zr.news.entity.PageBean;
 import com.zr.news.service.NewsService;
 import com.zr.news.service.NewsTypeService;
 import com.zr.news.util.NavUtil;
+import com.zr.news.util.NewsUpAndDownUtil;
 import com.zr.news.util.PageUtil;
 import com.zr.news.util.StringUtil;
 
@@ -26,8 +27,6 @@ public class NewsServlet extends HttpServlet {
 
     private NewsService newsService = new NewsService();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("NewsServlet.doPost......");
-
         String action = request.getParameter("action");
         if("query".equals(action)){
             query(request, response);
@@ -35,6 +34,14 @@ public class NewsServlet extends HttpServlet {
             String newsId = request.getParameter("newsId");
             News news = newsService.findNewsById(Integer.parseInt(newsId));
             request.setAttribute("news",news);
+            // 导航栏
+            String newsNav = NavUtil.getNavNewsById(news.getTypeId(), news.getTypeName(), news.getTitle());
+            request.setAttribute("newsNav",newsNav);
+            List<News> newsUpAndDown = newsService.getNewsUpAndDown(Integer.parseInt(newsId));
+            String upAndDown = NewsUpAndDownUtil.getUpAndDown(newsUpAndDown);
+            request.setAttribute("newsUpAndDown",upAndDown);
+
+
             request.setAttribute("mainJsp","newInfo.jsp");
             request.getRequestDispatcher(request.getContextPath()+"main/NewsModel.jsp").forward(request,response);
         }
