@@ -40,12 +40,9 @@ public class NewsServlet extends HttpServlet {
             List<News> newsUpAndDown = newsService.getNewsUpAndDown(Integer.parseInt(newsId));
             String upAndDown = NewsUpAndDownUtil.getUpAndDown(newsUpAndDown);
             request.setAttribute("newsUpAndDown",upAndDown);
-
-
             request.setAttribute("mainJsp","newInfo.jsp");
             request.getRequestDispatcher(request.getContextPath()+"main/NewsModel.jsp").forward(request,response);
         }
-
     }
 
     private void query(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

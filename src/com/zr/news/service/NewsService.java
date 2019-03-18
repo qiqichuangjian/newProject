@@ -74,6 +74,7 @@ public class NewsService {
     }
 
     public News findNewsById(int id){
+        newsDao.addClick(id);
         return newsDao.findNewsById(id);
     }
 

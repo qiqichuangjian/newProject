@@ -21,6 +21,6 @@ public interface NewsDao {
     public News findNewsById(int newsId);
     public News findUpNewsById(int newsId);
     public News findDownNewsById(int newsId);
-
+    public void addClick(int newsId);
 
 }

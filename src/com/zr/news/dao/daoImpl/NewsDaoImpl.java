@@ -13,6 +13,22 @@ import java.util.List;
  * @Acthor:孙琪; date:2019/3/11;
  */
 public class NewsDaoImpl implements NewsDao {
+    @Override
+    public void addClick(int newsId) {
+        String sql ="update news set click = click+1 where  news_id = ?";
+        PreparedStatement ps=null;
+        ResultSet rs = null;
+        try {
+            Connection connection = JdbcUtils.getConnection();
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1,newsId);
+            int i = ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            JdbcUtils.close();
+        }
+    }
 
     @Override
     public News findUpNewsById(int id) {
