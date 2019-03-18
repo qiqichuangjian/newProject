@@ -18,6 +18,8 @@ public interface NewsDao {
     public List<News> findClickNews();
     public List<News> findNewsListByType(int typeId, PageBean pageBean);
     public int findNewsCountByType(int typeId);
+    public News findNewsById(int newsId);
+
 
 
 }

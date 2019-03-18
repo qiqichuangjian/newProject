@@ -17,7 +17,7 @@
         <ul>
             <c:forEach items="${newsList}" var="news">
                 <li>
-                    <a href="#?${news.newsId}" title="${news.title}">
+                    <a href="NewsServlet?action=queryOne&newsId=${news.newsId}" title="${news.title}">
                         [ <fmt:formatDate value="${news.pushDate}" pattern="yyyy-MM-dd"/> ]&nbsp;
                             ${fn:substring(news.title, 0, 15)}
                     </a>

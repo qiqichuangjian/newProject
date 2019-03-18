@@ -144,3 +144,15 @@ a{
     font-size: large !important;
     margin-bottom: 10px;
 }
+.datas .news_title{
+    text-align: center;
+}
+.datas .news_info{
+    text-align: center;
+}
+.datas .news_content{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+
+}

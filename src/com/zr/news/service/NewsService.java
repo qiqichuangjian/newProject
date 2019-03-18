@@ -72,4 +72,9 @@ public class NewsService {
     public int findNewsCountByType(int typeId){
         return  newsDao.findNewsCountByType(typeId);
     }
+
+    public News findNewsById(int id){
+        //newsDao.addClick(id);
+        return newsDao.findNewsById(id);
+    }
 }

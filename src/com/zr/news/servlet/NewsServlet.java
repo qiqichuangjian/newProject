@@ -23,6 +23,8 @@ import java.util.List;
  */
 @WebServlet(name = "NewsServlet",urlPatterns = "/NewsServlet",initParams ={@WebInitParam(name="pageCount",value="10")})
 public class NewsServlet extends HttpServlet {
+
+    private NewsService newsService = new NewsService();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("NewsServlet.doPost......");
 
@@ -30,7 +32,11 @@ public class NewsServlet extends HttpServlet {
         if("query".equals(action)){
             query(request, response);
         }else if("queryOne".equals(action)){
-
+            String newsId = request.getParameter("newsId");
+            News news = newsService.findNewsById(Integer.parseInt(newsId));
+            request.setAttribute("news",news);
+            request.setAttribute("mainJsp","newInfo.jsp");
+            request.getRequestDispatcher(request.getContextPath()+"main/NewsModel.jsp").forward(request,response);
         }
 
     }
@@ -45,7 +51,6 @@ public class NewsServlet extends HttpServlet {
         String pageCount = getInitParameter("pageCount");
         pageBean.setPageCount(Integer.parseInt(pageCount));
 
-        NewsService newsService = new NewsService();
         //通过类别把此类别的所有新闻查询到
         pageBean.setCount(newsService.findNewsCountByType(Integer.parseInt(typeId)));
         List<News> newsList = newsService.findNewsListPage(Integer.parseInt(typeId), pageBean);
