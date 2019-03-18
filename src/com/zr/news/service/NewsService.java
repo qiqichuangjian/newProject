@@ -4,6 +4,7 @@ import com.zr.news.dao.NewsDao;
 import com.zr.news.dao.daoImpl.NewsDaoImpl;
 import com.zr.news.entity.News;
 import com.zr.news.entity.NewsType;
+import com.zr.news.entity.PageBean;
 import com.zr.news.util.StringUtil;
 
 import java.util.ArrayList;
@@ -61,5 +62,14 @@ public class NewsService {
 
     public List<News> findClickNews(){
         return newsDao.findClickNews();
+    }
+
+    public List<News> findNewsListPage(int typeId, PageBean pageBean){
+        List<News> newsList = newsDao.findNewsListByType(typeId,pageBean);
+        return newsList;
+    }
+
+    public int findNewsCountByType(int typeId){
+        return  newsDao.findNewsCountByType(typeId);
     }
 }

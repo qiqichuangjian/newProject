@@ -9,4 +9,5 @@ import java.util.List;
  */
 public interface NewsTypeDao {
     public List<NewsType> findAll();
+    public NewsType findTypeById(int typeId);
 }

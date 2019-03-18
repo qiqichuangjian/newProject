@@ -24,7 +24,7 @@
                 <c:forEach items="${imageNewsList}" var="image" varStatus="i">
                     <c:if test="${i.first}">
                         <div class="item active">
-                            <a href="#">
+                            <a href="NewsServlet?action=queryOne&newsId=${imageNews.newsId}">
                                 <img src="newsImg/${image.imageUrl}"
                                      alt="${image.title}"
                                      title="${image.title}"/>
@@ -33,7 +33,7 @@
                     </c:if>
                     <c:if test="${!i.first}">
                         <div class="item ">
-                            <a href="#">
+                            <a href="NewsServlet?action=queryOne&newsId=${imageNews.newsId}">
                                 <img src="newsImg/${image.imageUrl}"
                                      alt="${image.title}"
                                      title="${image.title}"/>
@@ -58,12 +58,12 @@
         <div class="newsHeader_list">
             <%--头条新闻 start--%>
             <div class="newsHeader">
-                <h3><a href="#?${headNews.newsId}" title="${headNews.title}">
+                <h3><a href="NewsServlet?action=queryOne&newsId=${headNews.newsId}" title="${headNews.title}">
                     ${fn:substring(headNews.title, 0, 8)}...
 
                 </a></h3>
                 <p>   ${fn:substring(headNews.context, 0, 40)}...
-                    <a href="#?${headNews.newsId}">[查看全文]</a>
+                    <a href="NewsServlet?action=queryOne&newsId=${headNews.newsId}">[查看全文]</a>
                 </p>
             </div>
             <%--头条新闻 end--%>
@@ -77,7 +77,7 @@
                                 <tr>
                             </c:if>
                             <td width="50%">
-                                <a href="#?${newNews.newsId}" title="${newNews.title}">${fn:substring(newNews.title, 0, 15)}</a>
+                                <a href="NewsServlet?action=queryOne&newsId=${newNews.newsId}" title="${newNews.title}">${fn:substring(newNews.title, 0, 15)}</a>
                             </td>
                             <c:if test="">
                                 </tr>
@@ -97,7 +97,7 @@
                 <ul>
                     <c:forEach items="${hotNewsList}" var="hotNews">
                         <li>
-                            <a href="#?${hotNews.newsId}"
+                            <a href="NewsServlet?action=queryOne&newsId=${hotNews.newsId}"
                                title="${hotNews.title}">${fn:substring(hotNews.title, 0, 15)}</a>
                         </li>
                     </c:forEach>

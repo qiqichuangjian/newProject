@@ -2,6 +2,7 @@ package com.zr.news.dao.daoImpl;
 
 import com.zr.news.dao.NewsDao;
 import com.zr.news.entity.News;
+import com.zr.news.entity.PageBean;
 import com.zr.news.framework.JdbcUtils;
 
 import java.sql.*;
@@ -12,6 +13,42 @@ import java.util.List;
  * @Acthor:孙琪; date:2019/3/11;
  */
 public class NewsDaoImpl implements NewsDao {
+    @Override
+    public int findNewsCountByType(int typeId) {
+        String sql="select count(*)  count from news where type_id=?";
+        PreparedStatement ps=null;
+        ResultSet rs = null;
+        try {
+            Connection connection = JdbcUtils.getConnection();
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1,typeId);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                int count = rs.getInt("count");
+                return  count;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if(rs!=null)
+                    rs.close();
+                if(ps!=null)
+                    ps.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            JdbcUtils.close();
+        }
+        return 0;
+    }
+
+
+    @Override
+    public List<News> findNewsListByType(int typeId, PageBean pageBean) {
+        String sql="select * from news where type_id="+typeId+" order by push_date desc limit "+pageBean.getIndex()+","+pageBean.getPageCount();
+        return  getNewsList(sql);
+    }
 
     @Override
     public List<News> findNewsByType(int typeId) {

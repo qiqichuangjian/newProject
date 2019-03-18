@@ -16,11 +16,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="<%=request.getContextPath() %>/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/static/css/link.css">
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/static/css/footer.css">
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/static/css/toutiao.css">
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/static/css/hotnews.css">
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/static/css/newsfenlei.css">
+    <%--<link rel="stylesheet" href="<%=request.getContextPath() %>/static/css/link.css">--%>
+    <%--<link rel="stylesheet" href="<%=request.getContextPath() %>/static/css/footer.css">--%>
+    <%--<link rel="stylesheet" href="<%=request.getContextPath() %>/static/css/toutiao.css">--%>
+    <%--<link rel="stylesheet" href="<%=request.getContextPath() %>/static/css/hotnews.css">--%>
+    <%--<link rel="stylesheet" href="<%=request.getContextPath() %>/static/css/newsfenlei.css">--%>
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/static/css/news.css">
 </head>
 <body>
 <div class="container">
@@ -28,7 +29,7 @@
     <jsp:include page="commons/header.jsp"></jsp:include>
     <div class="row">
         <div class="col-md-8">
-            <h1>NewsType</h1>
+            <jsp:include page="${mainJsp}"></jsp:include>
         </div>
         <div class="col-md-4">
             <%--最近更新  start--%>
@@ -38,7 +39,7 @@
                     <ul>
                         <c:forEach items="${newNewsList}" var="news">
                             <li>
-                                <a href="#?${news.newsId}" title="${news.title}">${fn:substring(news.title, 0, 15)}</a>
+                                <a href="NewsServlet?action=queryOne&newsId=${news.newsId}" title="${news.title}">${fn:substring(news.title, 0, 15)}</a>
                             </li>
                         </c:forEach>
                     </ul>
@@ -46,13 +47,13 @@
             </div>
             <%--最近更新 end--%>
             <%--热点新闻 start--%>
-            <div class="data_list " style="height: 300px;">
+            <div class="data_list " style="height: 300px; margin-top: 20px">
                 <div class="dataHeader">热门新闻</div>
                 <div class="datas">
                     <ul>
                         <c:forEach items="${clickNewsList}" var="news">
                             <li>
-                                <a href="#?${news.newsId}" title="${news.title}">${fn:substring(news.title, 0, 15)}</a>
+                                <a href="NewsServlet?action=queryOne&newsId=${news.newsId}" title="${news.title}">${fn:substring(news.title, 0, 15)}</a>
                             </li>
                         </c:forEach>
                     </ul>
