@@ -5,7 +5,7 @@ package com.zr.news.entity;
  */
 public class PageBean {
     private int count;//条数
-    private int pageIndex=1;//页面索引号  初始化第一页？
+    private int pageIndex=1;//页面索引号  初始化第一页
     private int pageCount;//每页条数
 
     //总页数

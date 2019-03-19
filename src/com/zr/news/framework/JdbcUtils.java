@@ -9,7 +9,7 @@ import java.sql.SQLException;
  */
 public class JdbcUtils {
     private static String driverClassName="com.mysql.cj.jdbc.Driver";
-    private static String url="jdbc:mysql:///news?serverTimezone=UTC";
+    private static String url="jdbc:mysql:///news?serverTimezone=GMT%2B8";
     private static String user="root";
     private static String password="123456";
     private static Connection connection;

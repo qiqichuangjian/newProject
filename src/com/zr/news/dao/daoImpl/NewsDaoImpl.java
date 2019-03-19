@@ -32,9 +32,9 @@ public class NewsDaoImpl implements NewsDao {
 
     @Override
     public News findUpNewsById(int id) {
-        String sql="select * from news where push_date>(select push_date from news where news_id=?)  order by push_date DESC limit 1;\n";
+        String sql="select * from news where push_date>(select push_date from news where news_id=?)  " +
+                "order by push_date DESC limit 1;\n";
         News news =  new News();
-
         PreparedStatement ps=null;
         ResultSet rs = null;
         try {
@@ -72,9 +72,9 @@ public class NewsDaoImpl implements NewsDao {
 
     @Override
     public News findDownNewsById(int id) {
-        String sql="select * from news where push_date<(select push_date from news where news_id=?)  order by push_date DESC limit 1;\n";
+        String sql="select * from news where push_date<(select push_date from news where news_id=?)  " +
+                "order by push_date DESC limit 1;\n";
         News news =  new News();
-
         PreparedStatement ps=null;
         ResultSet rs = null;
         try {
@@ -110,11 +110,12 @@ public class NewsDaoImpl implements NewsDao {
         return news;
     }
 
+    //通过id查询某条新闻
     @Override
     public News findNewsById(int id){
-        String sql="select n.*,t.type_name from news n, news_type  t  where n.type_id = t.type_id and news_id=?";
+        String sql="select n.*,t.type_name from news n, news_type  t  " +
+                "where n.type_id = t.type_id and news_id=?";
         News news =  new News();
-
         PreparedStatement ps=null;
         ResultSet rs = null;
         try {
@@ -152,7 +153,7 @@ public class NewsDaoImpl implements NewsDao {
     }
 
 
-
+    //通过类别把此类别的所有新闻数目查询到
     @Override
     public int findNewsCountByType(int typeId) {
         String sql="select count(*)  count from news where type_id=?";
@@ -184,9 +185,11 @@ public class NewsDaoImpl implements NewsDao {
     }
 
 
+    //通过类型找到此类型的所有新闻，limit 页面索引号，每页条数
     @Override
     public List<News> findNewsListByType(int typeId, PageBean pageBean) {
-        String sql="select * from news where type_id="+typeId+" order by push_date desc limit "+pageBean.getIndex()+","+pageBean.getPageCount();
+        String sql="select * from news where type_id="+typeId+" " +
+                "order by push_date desc limit "+pageBean.getIndex()+","+pageBean.getPageCount();
         return  getNewsList(sql);
     }
 
@@ -213,7 +216,7 @@ public class NewsDaoImpl implements NewsDao {
     @Override
     public News findHeadNews() {
         String sql = "select * from news order by push_date desc";
-        return getNewsList(sql).get(0);
+        return getNewsList(sql).get(0);//取第一个
     }
 
     @Override
@@ -234,6 +237,8 @@ public class NewsDaoImpl implements NewsDao {
         return getNewsList(sql);
     }
 
+    //预处理sql语句方便上面引用此方法？
+    @Override
     public List<News> getNewsList(String sql) {
         List<News> newslist = new ArrayList<>();
         PreparedStatement ps = null;

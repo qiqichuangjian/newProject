@@ -1,5 +1,8 @@
 package com.zr.news.servlet;
 
+import com.zr.news.dao.CommentDao;
+import com.zr.news.dao.daoImpl.CommentDaoImpl;
+import com.zr.news.entity.Comment;
 import com.zr.news.entity.News;
 import com.zr.news.entity.NewsType;
 import com.zr.news.entity.PageBean;
@@ -40,6 +43,12 @@ public class NewsServlet extends HttpServlet {
             List<News> newsUpAndDown = newsService.getNewsUpAndDown(Integer.parseInt(newsId));
             String upAndDown = NewsUpAndDownUtil.getUpAndDown(newsUpAndDown);
             request.setAttribute("newsUpAndDown",upAndDown);
+//            CommentService commentService = new CommentService();
+//            List<Comment> commentList = commentService.queryByNewsId(Integer.parseInt(newsId));
+//            request.setAttribute("commentList",commentList);
+            CommentDao dao = new CommentDaoImpl();
+            List<Comment> commentList = dao.queryByNewsId(Integer.parseInt(newsId));
+            request.setAttribute("commentList",commentList);
             request.setAttribute("mainJsp","newInfo.jsp");
             request.getRequestDispatcher(request.getContextPath()+"main/NewsModel.jsp").forward(request,response);
         }
