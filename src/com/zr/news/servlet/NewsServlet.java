@@ -30,6 +30,11 @@ public class NewsServlet extends HttpServlet {
 
     private NewsService newsService = new NewsService();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //防止乱码
+        request.setCharacterEncoding("utf-8");
+        response.setContentType("type/html;charset=utf-8");
+
+
         String action = request.getParameter("action");
         if("query".equals(action)){
             query(request, response);

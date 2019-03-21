@@ -9,5 +9,9 @@ import java.util.List;
  */
 public interface NewsTypeDao {
     public List<NewsType> findAll();
-    public NewsType findTypeById(int typeId);
+    public NewsType findTypeById(int id);
+    public int addNewsType(NewsType newsType);
+    public int deleteNewsType(int id);
+    public int updateNewsType(NewsType newsType);
+    public NewsType queryOne(int id);
 }

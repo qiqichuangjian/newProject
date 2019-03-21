@@ -52,7 +52,6 @@ public class LinkServlet extends HttpServlet {
         pageBean.setCount(ldao.getCount());
         //list数据
         List<Link> linkList = ldao.queryPageList(pageBean);
-
         request.setAttribute("linkList",linkList);
         request.setAttribute("pageBean",pageBean);
         request.getRequestDispatcher("/background/link/linkList.jsp").forward(request,response);

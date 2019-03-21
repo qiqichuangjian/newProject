@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <link rel="stylesheet" href="../../static/css/font.css">
 <link rel="stylesheet" href="../../static/css/xadmin.css">
+<link rel="stylesheet" href="../../static/layui/css/layui.css">
 <script type="text/javascript" src="../../static/js/jquery.min.js"></script>
 <script src="../../static/layui/layui.js" charset="utf-8"></script>
 <script type="text/javascript" src="../../static/js/xadmin.js"></script>

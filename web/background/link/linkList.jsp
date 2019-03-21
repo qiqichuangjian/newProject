@@ -40,7 +40,7 @@
                 onclick="x_admin_show('添加用户','<%=request.getContextPath()%>/background/link/linkAdd.jsp')"><i
                 class="layui-icon"></i>添加
         </button>
-        <span class="x-right" style="line-height:40px">共有数据：${pageBean.pageCount}条</span>
+        <span class="x-right" style="line-height:40px">共有数据：${pageBean.count}条</span>
     </xblock>
     <table class="layui-table">
         <thead>
@@ -58,28 +58,28 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <c:forEach items="${linkList}" var="link">
-            <td>
-                <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='${link.linkId}'><i
-                        class="layui-icon">&#xe605;</i></div>
-            </td>
-            <td>${link.linkId}</td>
-            <td>${link.linkName}</td>
-            <td>${link.linkUrl}</td>
-            <td>${link.email}</td>
-            <td>${link.linkOrder}</td>
-            <td class="td-manage">
-                <a title="查看"
-                   onclick="x_admin_show('编辑','<%=request.getContextPath()%>/LinkServlet?action=queryOne&kid=${link.linkId}')"
-                   href="javascript:;">
-                    <i class="layui-icon">&#xe63c;</i>
-                </a>
-                <a title="删除" onclick="member_del(this,'${link.linkId}')" href="javascript:;">
-                    <i class="layui-icon">&#xe640;</i>
-                </a>
-            </td>
-        </tr>
+        <c:forEach items="${linkList}" var="link">
+            <tr>
+                <td>
+                    <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='${link.linkId}'><i
+                            class="layui-icon">&#xe605;</i></div>
+                </td>
+                <td>${link.linkId}</td>
+                <td>${link.linkName}</td>
+                <td>${link.linkUrl}</td>
+                <td>${link.email}</td>
+                <td>${link.linkOrder}</td>
+                <td class="td-manage">
+                    <a title="查看"
+                       onclick="x_admin_show('编辑','<%=request.getContextPath()%>/LinkServlet?action=queryOne&kid=${link.linkId}')"
+                       href="javascript:;">
+                        <i class="layui-icon">&#xe63c;</i>
+                    </a>
+                    <a title="删除" onclick="member_del(this,'${link.linkId}')" href="javascript:;">
+                        <i class="layui-icon">&#xe640;</i>
+                    </a>
+                </td>
+            </tr>
         </c:forEach>
         </tbody>
     </table>
@@ -115,20 +115,20 @@
     });
 
     /*用户-删除*/
-    function member_del(obj,id) {
+    function member_del(obj, id) {
         alert(id);
         layer.confirm('确认要删除吗？', function (index) {
             $.ajax({
                 type: "post",
                 url: "<%=request.getContextPath()%>/LinkServlet",
-                data:"action=delete&kid="+id,
-                success: function(msg){
+                data: "action=delete&kid=" + id,
+                success: function (msg) {
                     //发异步删除数据
                     $(obj).parents("tr").remove();
-                    if (msg==1){
-                        layer.msg('删除成功!',{icon:1,time:1000});
-                    }else{
-                        layer.msg('已删除或不存在!',{icon:1,time:1000});
+                    if (msg == 1) {
+                        layer.msg('删除成功!', {icon: 1, time: 1000});
+                    } else {
+                        layer.msg('已删除或不存在!', {icon: 1, time: 1000});
                     }
 
                 }
@@ -137,42 +137,42 @@
     }
 
     /*用户-删除*/
-    function member_del(obj,id){
-        layer.confirm('确认要删除吗？',function(index){
+    function member_del(obj, id) {
+        layer.confirm('确认要删除吗？', function (index) {
             $.ajax({
-                type:"post",
-                url:"<%=request.getContextPath()%>/LinkServlet",
-                data:"action=delete&kid="+id,
-                success:function (msg) {
+                type: "post",
+                url: "<%=request.getContextPath()%>/LinkServlet",
+                data: "action=delete&kid=" + id,
+                success: function (msg) {
                     //发异步删除数据
                     $(obj).parents("tr").remove();
-                    if (msg==1){
-                        layer.msg('删除成功!',{icon:1,time:1000});
-                    }else{
-                        layer.msg('已删除或不存在!',{icon:1,time:1000});
+                    if (msg == 1) {
+                        layer.msg('删除成功!', {icon: 1, time: 1000});
+                    } else {
+                        layer.msg('已删除或不存在!', {icon: 1, time: 1000});
                     }
                 }
             })
         });
     }
 
-    function delAll (argument) {
+    function delAll(argument) {
         var data = tableCheck.getData();
-        if (data==""){
+        if (data == "") {
             layer.msg('请至少选择1条数据');
             return;
         }
-        layer.confirm('确认要删除这些信息吗？',function(index){
+        layer.confirm('确认要删除这些信息吗？', function (index) {
             $.ajax({
-                type:"post",
-                url:"<%=request.getContextPath()%>/LinkServlet",
-                data:"action=deleteAll&ids="+data,
-                success:function (msg) {
-                    if (msg>0){
+                type: "post",
+                url: "<%=request.getContextPath()%>/LinkServlet",
+                data: "action=deleteAll&ids=" + data,
+                success: function (msg) {
+                    if (msg > 0) {
                         //捉到所有被选中的，发异步进行删除
-                        layer.msg('成功删除'+msg+'条数据', {icon: 1})
-                    }else{
-                        layer.msg('已删除或不存在!',{icon:1,time:1000});
+                        layer.msg('成功删除' + msg + '条数据', {icon: 1})
+                    } else {
+                        layer.msg('已删除或不存在!', {icon: 1, time: 1000});
                     }
                     $(".layui-form-checked").not('.header').parents('tr').remove();
                 }

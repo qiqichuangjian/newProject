@@ -93,7 +93,6 @@ public class LinkDaoImpl implements LinkDao {
 
         return 0;
     }
-
     @Override
     public List<Link> queryPageList(PageBean pageBean) {
         List<Link> list=new ArrayList<>();

@@ -134,7 +134,7 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a _href="cate.html">
+                        <a _href="<%=request.getContextPath()%>/background/newsType/typeList.jsp">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>新闻分类维护</cite>
                         </a>
