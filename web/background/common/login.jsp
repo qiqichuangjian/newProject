@@ -16,10 +16,10 @@
     <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="../static/css/font.css">
-    <link rel="stylesheet" href="../static/css/xadmin.css">
-    <script type="text/javascript" src="../static/js/jquery.min.js"></script>
-    <script src="../static/layui/layui.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="../../static/css/font.css">
+    <link rel="stylesheet" href="../../static/css/xadmin.css">
+    <script type="text/javascript" src="../../static/js/jquery.min.js"></script>
+    <script src="../../static/layui/layui.js" charset="utf-8"></script>
 </head>
 <body class="login-bg">
 

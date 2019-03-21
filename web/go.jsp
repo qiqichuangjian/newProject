@@ -7,5 +7,5 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    response.sendRedirect(request.getContextPath()+"/GoIndex");
+    response.sendRedirect(request.getContextPath()+"background/common/backgroundIndex.jsp");
 %>

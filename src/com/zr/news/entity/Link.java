@@ -6,8 +6,8 @@ package com.zr.news.entity;
 public class Link {
     private int linkId;
     private String linkName;
-    private String email;
     private String linkUrl;
+    private String email;
     private int linkOrder;
 
     public int getLinkId() {
@@ -53,11 +53,17 @@ public class Link {
     public Link() {
     }
 
-    public Link(int linkId, String linkName, String email, String linkUrl, int linkOrder) {
+    public Link(int linkId, String linkName, String linkUrl,String email, int linkOrder) {
         this.linkId = linkId;
         this.linkName = linkName;
-        this.email = email;
         this.linkUrl = linkUrl;
+        this.email = email;
+        this.linkOrder = linkOrder;
+    }
+    public Link( String linkName,  String linkUrl,String email, int linkOrder) {
+        this.linkName = linkName;
+        this.linkUrl = linkUrl;
+        this.email = email;
         this.linkOrder = linkOrder;
     }
 }

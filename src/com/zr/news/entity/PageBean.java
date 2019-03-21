@@ -10,7 +10,7 @@ public class PageBean {
 
     //总页数
     public int getPages() {
-        return (count+pageCount-1)/pageCount;
+        return (count + pageCount - 1) / pageCount;
     }
 
     //每页开始索引号

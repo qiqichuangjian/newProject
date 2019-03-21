@@ -3,7 +3,7 @@
 *{
     margin: 0px;
     padding: 0px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 }
 a{
     text-decoration: none;
@@ -19,7 +19,7 @@ body{
     min-height: 100%;
 }
 .login-bg{
-    /*background: #eeeeee url() 0 0 no-repeat;*/
+    /*background: #eeeeee  0 0 no-repeat;*/
      background:url(../img/bg.png) no-repeat center;
     background-size: cover;
     overflow: hidden;
@@ -100,9 +100,6 @@ body{
     outline:none;
     width:100%;
 }
-.login hr {
-    background: #fff 0 0 no-repeat;
-}
 .login hr.hr15 {
     height: 15px;
     border: none;
@@ -143,7 +140,7 @@ xblock{
 }
 .x-so{
     /*text-align: center;*/
-    /*background: #f2f2f2 url() 0 0 no-repeat;*/
+    /*background: #f2f2f2  0 0 no-repeat;*/
     margin-bottom: 20px;
 }
 .x-so input.layui-input{
@@ -211,10 +208,8 @@ xblock{
     text-align: center;
 }
 .page .pagination li.active span{
-    background: #009688  0 0 no-repeat;
     color: #fff;
     border: 1px solid #009688;
-
 }
 
 /*登录样式*/
@@ -255,7 +250,7 @@ xblock{
     cursor: pointer;
 }
 .container .left_open i:hover{
-    background: rgba(255,255,255,0.3) 0 0 no-repeat;
+    background: rgba(255,255,255,0.3)  0 0 no-repeat;
 }
 
 .container .left{
@@ -325,14 +320,14 @@ xblock{
     display: block;
 }
 .left-nav #nav li .opened:hover{
-    /*background: #fff url() 0 0 no-repeat;*/
+    /*background: #fff  0 0 no-repeat;*/
 }
 .left-nav #nav li .opened .current{
     
 }
 .left-nav #nav li .sub-menu li:hover{
     /*color: blue;*/
-     /*background: #fff url() 0 0 no-repeat;*/
+     /*background: #fff  0 0 no-repeat;*/
 }
 .left-nav #nav li .sub-menu li a{
     padding: 12px 15px 12px 30px;
@@ -359,7 +354,6 @@ xblock{
 .x-slide_left {
     width: 17px;
     height: 61px;
-    background:  0 0 no-repeat;
     position: absolute;
     top: 200px;
     left: 221px;
@@ -381,7 +375,7 @@ xblock{
     right: 0;
     bottom: 42px;
     left: 221px;
-    background: rgba(0,0,0,0.5); url() 0 0 no-repeat;
+    background: rgba(0,0,0,0.5);
     overflow: hidden;
     z-index: 100;
     display: none;
